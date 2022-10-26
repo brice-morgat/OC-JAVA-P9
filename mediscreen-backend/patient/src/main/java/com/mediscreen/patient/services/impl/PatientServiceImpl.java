@@ -12,11 +12,11 @@ import java.util.List;
 
 @Service
 public class PatientServiceImpl implements IPatientService {
-
     @Autowired
     PatientRepo patientRepo;
 
     private final Logger logger = LoggerFactory.getLogger(PatientServiceImpl.class);
+
 
     @Override
     public Patient getPatient(Long id) {

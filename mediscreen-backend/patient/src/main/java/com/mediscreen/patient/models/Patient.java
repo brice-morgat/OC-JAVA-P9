@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -23,7 +23,7 @@ public class Patient {
     private Long id;
     private String firstName;
     private String lastName;
-    private LocalDateTime birthday;
+    private LocalDate birthday;
     private Gender gender;
     private String address;
     private String phoneNumber;
