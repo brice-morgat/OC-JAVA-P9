@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,11 +25,13 @@ public class PatientServiceImpl implements IPatientService {
     }
 
     @Override
+    @Transactional
     public Patient savePatient(Patient patient) {
         return patientRepo.save(patient);
     }
 
     @Override
+    @Transactional
     public void deletePatient(Long id) {
         Patient patient = patientRepo.getPatientById(id).orElseThrow();
         patientRepo.delete(patient);
@@ -40,6 +43,7 @@ public class PatientServiceImpl implements IPatientService {
     }
 
     @Override
+    @Transactional
     public Patient updatePatient(Patient patient) {
         return patientRepo.save(patient);
     }
