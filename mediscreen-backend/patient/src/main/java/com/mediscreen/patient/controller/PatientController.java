@@ -9,17 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@Controller("/patient")
+@RestController
+@RequestMapping("/patient")
 public class PatientController {
     private final Logger logger = LoggerFactory.getLogger(PatientController.class);
 
@@ -70,6 +73,17 @@ public class PatientController {
             return new ResponseEntity(saved, HttpStatus.OK);
         } catch (Exception e) {
             logger.error("An error has occurred : {}", e.getMessage());
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity deletePatient(@RequestParam Long id) {
+        logger.info("Delete Patient");
+        try {
+            patientService.deletePatient(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }

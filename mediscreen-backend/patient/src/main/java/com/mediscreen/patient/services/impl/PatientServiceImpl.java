@@ -1,6 +1,7 @@
 package com.mediscreen.patient.services.impl;
 
 import com.mediscreen.patient.models.Patient;
+import com.mediscreen.patient.models.enums.Gender;
 import com.mediscreen.patient.repository.PatientRepo;
 import com.mediscreen.patient.services.IPatientService;
 import org.slf4j.Logger;
