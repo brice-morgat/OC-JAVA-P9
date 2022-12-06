@@ -131,11 +131,18 @@ import {FeatherModule} from "angular-feather";
 import * as icons from "angular-feather/icons";
 import {LayoutModule} from "./layout/layout.module";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {QuillModule} from 'ngx-quill';
 
 
 @NgModule({
     imports: [
         FeatherModule.pick(icons.allIcons),
+        QuillModule.forRoot({
+            modules: {
+                syntax: false,
+                toolbar: [['bold', 'italic', 'underline']]
+              }
+        }),
         MatPaginatorModule,
         LayoutModule,
         FormsModule,
@@ -353,7 +360,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         StyleClassModule,
         ChipModule,
         ChipsModule,
-        CommonModule
+        CommonModule,
+        QuillModule
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},

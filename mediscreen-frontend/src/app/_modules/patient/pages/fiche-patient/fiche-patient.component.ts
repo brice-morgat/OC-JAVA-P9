@@ -12,6 +12,8 @@ import { PatientService } from 'src/app/_services/patient.service';
 export class FichePatientComponent implements OnInit {
   id: any;
   patient: Observable<Patient>;
+  selectNote: string;
+  testText: string = "<p>Ceci est un commentaire basique</p>"
 
   constructor(private route: ActivatedRoute,
     private router: Router,

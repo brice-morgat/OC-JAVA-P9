@@ -50,3 +50,36 @@
         </div>
     </div>
 </div>
+
+<p-accordion>
+    <p-accordionTab header="Ajouter une note">
+        <quill-editor class="mb-3" [style.display]="'block'" [(ngModel)]="selectNote" theme="snow" [styles]="{height: '100px'}"
+        placeholder="Ajouter une note"></quill-editor>
+        <p-button>Valider</p-button>
+    </p-accordionTab>
+</p-accordion>
+
+<div class="card mt-3">
+    <h3>Historique des notes patient</h3>
+    <ng-container >
+        <div class="card surface-200">
+            <div class="flex justify-content-between">
+                <div class="flex align-items-center justify-content-center">
+                    <span>Ajouté le : 01/12/2022</span>
+                    <span></span>
+                    <span class="ml-1">| Modifier le : 05/12/2022</span>
+                </div>
+                <div class="flex align-items-center justify-content-center">
+                    <p-avatar icon="pi pi-pencil" styleClass="mr-2" size="medium" [style]="{'background-color':'#F7CA18', 'color': '#ffffff', 'cursor': 'pointer'}" shape="circle"></p-avatar>
+                </div>
+            </div>
+            <p [innerHTML]="testText"></p>
+            <ng-container *ngIf="testText == 'true'">
+                <quill-editor class="mb-3" [style.display]="'block'" [(ngModel)]="testText" theme="snow" [styles]="{height: '100px'}"
+                placeholder="Ajouter une note"></quill-editor>
+                <p-button class="mr-2">Annuler</p-button>
+                <p-button>Valider</p-button>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
