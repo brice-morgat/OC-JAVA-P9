@@ -38,7 +38,6 @@ public class NoteServiceImpl implements INoteService {
     public Note modifyNote(Note note) {
         Query query = Query.query(Criteria.where("id").is(note.getId()));
         Note noteQuery = mongoOperations.findOne(query, Note.class);
-        System.out.println(noteQuery);
         noteQuery.setUpdatedAt(LocalDateTime.now());
         noteQuery.setContent(note.getContent());
         return noteRepo.save(noteQuery);

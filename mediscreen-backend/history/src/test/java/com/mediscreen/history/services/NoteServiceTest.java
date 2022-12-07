@@ -35,9 +35,6 @@ public class NoteServiceTest {
     @Mock
     private NoteRepo noteRepo;
 
-
-
-
     @Test
     public void getNoteByPatIdTest() {
         //Given
@@ -73,7 +70,6 @@ public class NoteServiceTest {
         Note note = new Note();
         note.setId(1);
         note.setContent("Contenu");
-
         //When
         Mockito.when(operations.findOne(Mockito.any(), Mockito.any())).thenReturn(note);
         Mockito.when(noteRepo.save(Mockito.any())).thenReturn(note);
