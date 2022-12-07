@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-@Document(collation = "History")
+@Document(collection = "note")
 public class Note {
     @Transient
     public static final String SQUENCE_NAME = "notes_sequence";

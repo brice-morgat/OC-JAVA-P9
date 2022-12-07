@@ -1,7 +1,7 @@
 export class Note {
     id: number;
     patId: number;
-    content: number;
+    content: string;
     createdAt: any;
     updatedAt: any;
 

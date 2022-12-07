@@ -18,10 +18,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/notes")
+    @RequestMapping("/patHistory")
 public class NoteController {
     private final Logger logger = LoggerFactory.getLogger(NoteController.class);
 
@@ -42,7 +44,7 @@ public class NoteController {
 
     @PutMapping("/edit")
     public ResponseEntity modifyNote(@RequestBody Note note) {
-        logger.info("Post Notes");
+        logger.info("Edit Notes");
         try {
             Note result = noteService.modifyNote(note);
             return new ResponseEntity(result, HttpStatus.OK);
@@ -57,11 +59,11 @@ public class NoteController {
         logger.info("Get Notes By Patient Id");
         try {
             List<Note> result = noteService.getNotesByPatId(id);
+            Collections.reverse(result);
             return new ResponseEntity(result, HttpStatus.OK);
         } catch (Exception e) {
             logger.error("An error has occurred : {}", e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
     }
-
 }

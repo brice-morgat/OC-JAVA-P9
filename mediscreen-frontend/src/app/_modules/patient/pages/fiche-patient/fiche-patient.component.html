@@ -55,30 +55,29 @@
     <p-accordionTab header="Ajouter une note">
         <quill-editor class="mb-3" [style.display]="'block'" [(ngModel)]="selectNote" theme="snow" [styles]="{height: '100px'}"
         placeholder="Ajouter une note"></quill-editor>
-        <p-button>Valider</p-button>
+        <p-button (click)="postNote()">Valider</p-button>
     </p-accordionTab>
 </p-accordion>
 
 <div class="card mt-3">
     <h3>Historique des notes patient</h3>
-    <ng-container >
+    <ng-container *ngFor="let note of noteList$ | async">
         <div class="card surface-200">
             <div class="flex justify-content-between">
                 <div class="flex align-items-center justify-content-center">
-                    <span>Ajouté le : 01/12/2022</span>
-                    <span></span>
-                    <span class="ml-1">| Modifier le : 05/12/2022</span>
+                    <span>Ajouté le : {{note.createdAt | date:'dd/MM/yyyy à HH:mm'}}</span>
+                    <span *ngIf="note.updatedAt" class="ml-1">| Modifier le : {{note.updatedAt | date:'dd/MM/yyyy à HH:mm'}}</span>
                 </div>
                 <div class="flex align-items-center justify-content-center">
-                    <p-avatar icon="pi pi-pencil" styleClass="mr-2" size="medium" [style]="{'background-color':'#F7CA18', 'color': '#ffffff', 'cursor': 'pointer'}" shape="circle"></p-avatar>
+                    <p-avatar (click)="note.modify = !note.modify" icon="pi pi-pencil" styleClass="mr-2" size="medium" [style]="{'background-color':'#F7CA18', 'color': '#ffffff', 'cursor': 'pointer'}" shape="circle"></p-avatar>
                 </div>
             </div>
-            <p [innerHTML]="testText"></p>
-            <ng-container *ngIf="testText == 'true'">
-                <quill-editor class="mb-3" [style.display]="'block'" [(ngModel)]="testText" theme="snow" [styles]="{height: '100px'}"
+            <p *ngIf="!note.modify" [innerHTML]="note.content"></p>
+            <ng-container *ngIf="note.modify">
+                <quill-editor class="mb-3" [style.display]="'block'" [(ngModel)]="note.content" theme="snow" [styles]="{height: '100px'}"
                 placeholder="Ajouter une note"></quill-editor>
-                <p-button class="mr-2">Annuler</p-button>
-                <p-button>Valider</p-button>
+                <p-button (click)="getNotes()" class="mr-2">Annuler</p-button>
+                <p-button (click)="modifyNote(note)">Valider</p-button>
             </ng-container>
         </div>
     </ng-container>
