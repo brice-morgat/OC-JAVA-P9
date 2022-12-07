@@ -7,7 +7,7 @@
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "pilotage" : "ng serve --configuration=dev"
+        "pilotage": "ng serve --configuration=dev"
     },
     "private": true,
     "dependencies": {
@@ -26,10 +26,12 @@
         "@types/feather-icons": "^4.7.0",
         "angular-feather": "^6.3.0",
         "chart.js": "^3.8.0",
+        "ngx-quill": "^20.0.0",
         "primeflex": "^3.2.1",
         "primeicons": "5.0.0",
         "primeng": "^13.4.1",
         "prismjs": "^1.28.0",
+        "quill": "^1.3.7",
         "rxjs": "~7.5.5",
         "web-animations-js": "^2.3.2",
         "zone.js": "~0.11.6"

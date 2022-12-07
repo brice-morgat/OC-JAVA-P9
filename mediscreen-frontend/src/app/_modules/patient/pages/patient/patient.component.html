@@ -66,12 +66,12 @@
                         <button class="dropdown-item" type="button">Something else here</button>
                       </div> -->
                     <ul class="dropdown__menu">
-                        <li><a (click)="view(list.id)"><i  aria-hidden="true" class="pi pi-eye margin-right-5"></i> Voir</a></li>
+                        <li (click)="view(list.id)"><a><i  aria-hidden="true" class="pi pi-eye margin-right-5"></i> Voir</a></li>
                         <!-- <li class="dropdown-item"><a><i
                           aria-hidden="true" class="pi pi-copy margin-right-5"></i> TEST</a></li>
                     <li class="dropdown-item"><a><i
                           aria-hidden="true" class="pi pi-ban margin-right-5"></i>ku</a></li> -->
-                        <li class="dropdown-item"><a (click)="edit(list)" style="color: orange;"><i aria-hidden="true"
+                        <li class="dropdown-item" (click)="edit(list)"><a style="color: orange;"><i aria-hidden="true"
                                     class="pi pi-pencil margin-right-5"></i> Modifier</a></li>
                         <li class="dropdown-item"><a style="color: red;"><i aria-hidden="true"
                                     class="pi pi-trash margin-right-5"></i> Supprimer</a></li>

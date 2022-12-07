@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { catchError, Observable, of, Subject } from 'rxjs';
 import { Patient } from 'src/app/_models/patient.model';
 import { PatientService } from 'src/app/_services/patient.service';
-import {DropdownModule} from 'primeng/dropdown';
 
 
 @Component({
@@ -93,9 +92,7 @@ export class PatientComponent implements OnInit {
       phone: [{value: patient.phone, disabled: false}]
     });
     this.sendForm.get('dob').setValue(this.selectedDate);
-    this.sendForm.get('sex').setValue(patient.sex == 'M' ? this.options[0].code : this.options[1].code);
-
-    
+    this.sendForm.get('sex').setValue(patient.sex == 'M' ? this.options[0].code : this.options[1].code);   
     this.display = true;
   }
 
