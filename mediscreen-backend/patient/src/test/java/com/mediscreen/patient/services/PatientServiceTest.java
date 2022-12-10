@@ -62,10 +62,10 @@ public class PatientServiceTest {
         Patient patient = new Patient();
         patient.setId(1L);
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
         //When
         Patient savePatient = patientService.savePatient(patient);
         Patient getPatient = patientService.getPatient(1L);
@@ -79,10 +79,10 @@ public class PatientServiceTest {
         Patient patient = new Patient();
         patient.setId(1L);
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
         //When
         Patient savePatient = patientService.savePatient(patient);
         //Then
@@ -95,10 +95,10 @@ public class PatientServiceTest {
         Patient patient = new Patient();
         patient.setId(1L);
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
         //When
         Patient savePatient = patientService.updatePatient(patient);
         //Then
@@ -111,10 +111,10 @@ public class PatientServiceTest {
         Patient patient = new Patient();
         patient.setId(1L);
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
         //When
         patientService.savePatient(patient);
         //Then
@@ -126,17 +126,17 @@ public class PatientServiceTest {
         //Given
         Patient patient = new Patient();
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
 
         Patient patient2 = new Patient();
         patient.setAddress("208 Street Boulvard, Paris, 90 000");
-        patient.setBirthday(LocalDate.now().minusYears(20L));
-        patient.setGender(Gender.MALE);
-        patient.setFirstName("Firstname");
-        patient.setLastName("Lastname");
+        patient.setDob(LocalDate.now().minusYears(20L));
+        patient.setSex(Gender.MALE);
+        patient.setFamily("Firstname");
+        patient.setGiven("Lastname");
         List<Patient> patientList = new ArrayList<>();
         patientList.add(patient);
         patientList.add(patient2);
