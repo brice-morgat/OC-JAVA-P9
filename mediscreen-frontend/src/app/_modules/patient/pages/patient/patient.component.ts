@@ -82,17 +82,16 @@ export class PatientComponent implements OnInit {
     this.selectedOption = patient.sex == 'M' ? this.options[0] : this.options[1];
     this.selectedDate = patient.dob ?? null;
     console.log(this.selectedOption)
-    this.sendForm = this.formBuilder.group({
-      id: [{value: patient.id, disabled: false}],
-      given: [{value: patient.given, disabled: false}, [Validators.required]],
-      family: [{value: patient.family, disabled: false}, [Validators.required]],
-      dob: [{value: patient.dob, disabled: false}],
-      sex: [{value: this.selectedOption.code, disabled: false}],
-      address: [{value: patient.address, disabled: false}],
-      phone: [{value: patient.phone, disabled: false}]
-    });
-    this.sendForm.get('dob').setValue(this.selectedDate);
-    this.sendForm.get('sex').setValue(patient.sex == 'M' ? this.options[0].code : this.options[1].code);   
+    this.sendForm.patchValue({
+      id: patient.id,
+      given: patient.given,
+      family: patient.family,
+      dob: patient.dob,
+      address: patient.address,
+      phone: patient.phone,
+      sex: patient.sex
+    })
+    
     this.display = true;
   }
 
