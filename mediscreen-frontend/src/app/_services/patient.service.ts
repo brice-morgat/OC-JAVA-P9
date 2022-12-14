@@ -15,7 +15,7 @@ export class PatientService {
   getAllPatient(): Observable<Response> {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    return this.http.get<Response>(`http://192.168.56.1:8080/patient/getAll`, { headers: headers}).pipe(
+    return this.http.get<Response>(`http://192.168.56.1:8081/patient/getAll`, { headers: headers}).pipe(
         map(result => result)
       );
   }
@@ -23,7 +23,7 @@ export class PatientService {
   getPatient(id: number): Observable<Patient> {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    return this.http.get<Patient>(`http://192.168.56.1:8080/patient/get?id=${id}`, { headers: headers}).pipe(
+    return this.http.get<Patient>(`http://192.168.56.1:8081/patient/get?id=${id}`, { headers: headers}).pipe(
         map(result => result)
       );
   }
@@ -31,7 +31,7 @@ export class PatientService {
   postPatient(patient: any): Observable<Patient> {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json');
-    return this.http.post<Patient>(`http://192.168.56.1:8080/patient/add`, patient, { headers: headers }).pipe(
+    return this.http.post<Patient>(`http://192.168.56.1:8081/patient/add`, patient, { headers: headers }).pipe(
         map(result => result)
       );
   }

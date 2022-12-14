@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-    @RequestMapping("/patHistory")
+@RequestMapping("/patHistory")
 public class NoteController {
     private final Logger logger = LoggerFactory.getLogger(NoteController.class);
 
