@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "pilotage": {
+        "mediscreen": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/pilotage",
+                        "outputPath": "dist/mediscreen",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -86,13 +86,13 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "pilotage:build:production"
+                            "browserTarget": "mediscreen:build:production"
                         },
                         "development": {
-                            "browserTarget": "pilotage:build:development"
+                            "browserTarget": "mediscreen:build:development"
                         },
                         "dev": {
-                            "browserTarget": "pilotage:build:dev"
+                            "browserTarget": "mediscreen:build:dev"
                           }
                     },
                     "defaultConfiguration": "development"
@@ -100,7 +100,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "pilotage:build"
+                        "browserTarget": "mediscreen:build"
                     }
                 },
                 "test": {
@@ -124,7 +124,7 @@
             }
         }
     },
-    "defaultProject": "pilotage",
+    "defaultProject": "mediscreen",
     "cli": {
       "analytics": "57117a59-b5c7-4885-bf12-056333510176"
     }

@@ -1,5 +1,5 @@
 {
-    "name": "sakai-ng",
+    "name": "mediscreen",
     "version": "13.1.1",
     "scripts": {
         "ng": "ng",
@@ -26,6 +26,7 @@
         "@types/feather-icons": "^4.7.0",
         "angular-feather": "^6.3.0",
         "chart.js": "^3.8.0",
+        "http-server": "^14.1.1",
         "ngx-quill": "^20.0.0",
         "primeflex": "^3.2.1",
         "primeicons": "5.0.0",

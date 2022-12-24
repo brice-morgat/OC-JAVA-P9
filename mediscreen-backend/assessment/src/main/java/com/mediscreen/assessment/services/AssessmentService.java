@@ -74,7 +74,7 @@ public class AssessmentService {
         Set<String> triggers = new HashSet();
 
         for (NoteBean note : notes) {
-            if (!(note.getContent() == null) && !(note.getContent().isEmpty()))
+            if (note.getContent() != null && !(note.getContent().isEmpty()))
                 triggers.addAll(TRIGGER_LIST.stream().filter(terms -> note.getContent().toLowerCase().contains(terms.toLowerCase())).collect(Collectors.toList()));
         }
 
