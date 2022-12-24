@@ -41,6 +41,11 @@ public class AssessmentService {
             "anticorps"
     );
 
+    /**
+     * "Given a patient id, get the patient's age, gender, and notes, then calculate the patient's diabetes level."
+     * @param id the patient id
+     * @return A string
+     */
     public String patientAssessment(Long id) {
         PatientBean patient = patientServiceProxy.getPatientById(id);
         List<NoteBean> notes = historyServiceProxy.getAllNoteByPatId(id);
@@ -70,6 +75,12 @@ public class AssessmentService {
         return String.format("Patient: %s %s (age %d) diabetes assessment is: %s", patient.getGiven(), patient.getFamily(), patientAge, diabetesLevel);
     }
 
+    /**
+     * > This function takes a list of notes and returns the number of triggers found in the notes
+     *
+     * @param notes A list of NoteBean objects.
+     * @return The number of triggers in the notes.
+     */
     public int getTriggerCount(List<NoteBean> notes) {
         Set<String> triggers = new HashSet();
 
@@ -82,6 +93,12 @@ public class AssessmentService {
     }
 
 
+    /**
+     * Get the number of years between the given date and today.
+     *
+     * @param date The date to calculate the age from.
+     * @return The number of years between the date and today.
+     */
     private long getAge(LocalDate date) {
         return ChronoUnit.YEARS.between(date, LocalDate.now());
     }
