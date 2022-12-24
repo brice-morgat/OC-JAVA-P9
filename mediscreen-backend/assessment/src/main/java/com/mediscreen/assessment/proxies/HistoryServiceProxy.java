@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "microservice-history", url = "localhost:8082")
+@FeignClient(name = "microservice-history", url = "http://history:8082")
 public interface HistoryServiceProxy {
     @GetMapping("/patHistory/getAllByPatId")
     List<NoteBean> getAllNoteByPatId(@RequestParam Long id);
